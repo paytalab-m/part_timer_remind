@@ -431,7 +431,7 @@
         }
 
         .tip-card.locked .tip-card-thumb {
-            filter: grayscale(80%) brightness(0.7);
+            background: #E8E8E8;
         }
 
         .tip-card.locked .tip-card-content {
@@ -442,27 +442,39 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            width: 48px;
-            height: 48px;
-            background: rgba(0,0,0,0.6);
-            border-radius: 50%;
+            transform: translate(-50%, -60%);
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            font-size: 24px;
+            gap: 8px;
             z-index: 5;
+        }
+
+        .tip-card-lock-icon {
+            font-size: 32px;
+            opacity: 0.4;
+        }
+
+        .tip-card-lock-text {
+            font-size: 11px;
+            font-weight: 700;
+            color: #FF6B35;
+            letter-spacing: 0.5px;
         }
 
         /* 다른 편 보기 잠금 */
         .other-tip-item.locked {
             pointer-events: none;
-            opacity: 0.4;
         }
 
         .other-tip-item.locked .other-tip-thumb {
-            filter: grayscale(80%);
+            background: #E8E8E8;
             position: relative;
+        }
+
+        .other-tip-item.locked .other-tip-label,
+        .other-tip-item.locked .other-tip-name {
+            opacity: 0.5;
         }
 
         .other-tip-lock {
@@ -470,7 +482,15 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 20px;
+            font-size: 18px;
+            opacity: 0.4;
+        }
+
+        .other-tip-thumb-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
         }
 
         /* 오버레이 네비게이션 버튼 */
@@ -703,7 +723,7 @@
 
     <script>
         // ===== 설정 =====
-        const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbysYf2NLT-G82YjMFA8Js-ACiTeXpjPKQW6qPp8y0xNO68cEJFxE1Z-6ai2xyReTKxg2A/exec'; // Apps Script 웹앱 URL로 교체 필요
+        const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbysYf2NLT-G82YjMFA8Js-ACiTeXpjPKQW6qPp8y0xNO68cEJFxE1Z-6ai2xyReTKxg2A/exec';
         
         // URL 파라미터 파싱
         const urlParams = new URLSearchParams(window.location.search);
@@ -949,15 +969,19 @@
                 card.onclick = () => openViewer(i, true); // fromHome = true
                 
                 const data = tipsData[i];
-                const hasThumbnail = data.thumbnail;
+                const hasThumbnail = data.thumbnail && !isLocked;
                 
                 card.innerHTML = `
                     <div class="tip-card-thumb">
                         ${hasThumbnail 
                             ? `<img src="${data.thumbnail}" alt="${i}편 썸네일" class="tip-card-img">` 
-                            : `<span class="tip-card-placeholder">${icons[i-1]}</span>`
+                            : (isLocked 
+                                ? `<div class="tip-card-lock">
+                                     <span class="tip-card-lock-icon">🔒</span>
+                                     <span class="tip-card-lock-text">COMING SOON</span>
+                                   </div>`
+                                : `<span class="tip-card-placeholder">${icons[i-1]}</span>`)
                         }
-                        ${isLocked ? '<div class="tip-card-lock">🔒</div>' : ''}
                     </div>
                     <div class="tip-card-content">
                         <div class="tip-card-episode">${i}편</div>
@@ -1043,13 +1067,19 @@
             container.innerHTML = otherTipsInfo.map(tip => {
                 const isLocked = isEpisodeLocked(tip.ep);
                 const isCurrent = tip.ep === currentEpisode;
+                const data = tipsData[tip.ep];
+                const hasThumbnail = data.thumbnail && !isLocked;
                 
                 return `
                     <div class="other-tip-item ${isCurrent ? 'current' : ''} ${isLocked ? 'locked' : ''}" 
                          onclick="handleOtherTipClick(${tip.ep})">
                         <div class="other-tip-thumb" style="position: relative;">
-                            ${tip.icon}
-                            ${isLocked ? '<span class="other-tip-lock">🔒</span>' : ''}
+                            ${hasThumbnail 
+                                ? `<img src="${data.thumbnail}" alt="${tip.ep}편" class="other-tip-thumb-img">`
+                                : (isLocked 
+                                    ? `<span class="other-tip-lock">🔒</span>`
+                                    : tip.icon)
+                            }
                         </div>
                         <div class="other-tip-label">${tip.ep}편</div>
                         <div class="other-tip-name">${tip.title}</div>
