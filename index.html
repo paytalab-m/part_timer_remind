@@ -481,9 +481,23 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -60%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .other-tip-lock-icon {
             font-size: 18px;
             opacity: 0.4;
+        }
+
+        .other-tip-lock-text {
+            font-size: 8px;
+            font-weight: 700;
+            color: #FF6B35;
+            letter-spacing: 0.3px;
         }
 
         .other-tip-thumb-img {
@@ -600,7 +614,6 @@
         }
 
         .other-tip-item.current {
-            opacity: 0.5;
             pointer-events: none;
         }
 
@@ -867,15 +880,8 @@
         }
 
         function sendToSheet(data) {
-            // fetch로 데이터 전송 (모바일 호환성 개선)
             const params = new URLSearchParams(data).toString();
-            
-            fetch(`${SHEET_WEBHOOK_URL}?${params}`, {
-                method: 'GET',
-                mode: 'no-cors'
-            }).catch(err => {
-                console.log('Sheet logging error:', err);
-            });
+            fetch(SHEET_WEBHOOK_URL + '?' + params, { mode: 'no-cors' });
         }
 
         // ===== 페이지뷰 이벤트 =====
@@ -1082,7 +1088,10 @@
                             ${hasThumbnail 
                                 ? `<img src="${data.thumbnail}" alt="${tip.ep}편" class="other-tip-thumb-img">`
                                 : (isLocked 
-                                    ? `<span class="other-tip-lock">🔒</span>`
+                                    ? `<div class="other-tip-lock">
+                                         <span class="other-tip-lock-icon">🔒</span>
+                                         <span class="other-tip-lock-text">COMING SOON</span>
+                                       </div>`
                                     : tip.icon)
                             }
                         </div>
