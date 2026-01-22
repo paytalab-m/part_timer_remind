@@ -1,1 +1,1175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>시급 2배 챌린지 꿀팁</title>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NL25K84J');</script>
+    <!-- End Google Tag Manager -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --primary-light: #FF8F66;
+            --primary-dark: #E55A2B;
+            --bg-cream: #FFF9F5;
+            --bg-card: #FFFFFF;
+            --text-dark: #2D2D2D;
+            --text-medium: #5A5A5A;
+            --text-light: #8A8A8A;
+            --border: #F0E8E3;
+            --shadow: rgba(255, 107, 53, 0.12);
+            --success: #4CAF50;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-dark);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ===== 메인 홈 ===== */
+        .home-container {
+            max-width: 420px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+            min-height: 100vh;
+        }
+
+        .home-header {
+            padding: 32px 0 24px;
+            text-align: center;
+        }
+
+        .home-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .home-logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .home-logo-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: -0.3px;
+        }
+
+        .home-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--text-dark);
+            line-height: 1.3;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .home-title span {
+            color: var(--primary);
+        }
+
+        .home-subtitle {
+            font-size: 15px;
+            color: var(--text-medium);
+            line-height: 1.5;
+        }
+
+        /* 카드 그리드 */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 8px;
+        }
+
+        .tip-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px var(--shadow);
+        }
+
+        .tip-card:active {
+            transform: scale(0.98);
+        }
+
+        .tip-card-thumb {
+            width: 100%;
+            aspect-ratio: 858/1189;
+            background: linear-gradient(135deg, #FFF5F0 0%, #FFE8DD 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tip-card-thumb::before {
+            content: '';
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,107,53,0.08) 0%, transparent 60%);
+        }
+
+        .tip-card-placeholder {
+            font-size: 48px;
+            opacity: 0.9;
+        }
+
+        .tip-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tip-card-content {
+            padding: 14px 12px 16px;
+        }
+
+        .tip-card-episode {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .tip-card-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.4;
+            letter-spacing: -0.3px;
+        }
+
+        /* ===== 컷툰 뷰어 ===== */
+        .viewer-container {
+            display: none;
+            max-width: 420px;
+            margin: 0 auto;
+            min-height: 100vh;
+            background: var(--bg-cream);
+            position: relative;
+        }
+
+        .viewer-header {
+            position: sticky;
+            top: 0;
+            background: rgba(255,249,245,0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .viewer-back {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            border: none;
+            background: var(--bg-card);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--text-dark);
+            transition: all 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .viewer-back:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .viewer-title-area {
+            flex: 1;
+        }
+
+        .viewer-episode {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+
+        .viewer-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-top: 2px;
+            letter-spacing: -0.3px;
+        }
+
+        /* 슬라이더 영역 */
+        .viewer-slider {
+            padding: 12px;
+            position: relative;
+        }
+
+        .slide-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            background: var(--bg-card);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+
+        .slides-wrapper {
+            display: flex;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        /* 일반 슬라이드 - 이미지만 꽉 차게 */
+        .slide-image-only {
+            width: 100%;
+            aspect-ratio: 858/1189;
+            background: linear-gradient(135deg, #FFF5F0 0%, #FFE8DD 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-image-only::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,107,53,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,143,102,0.1) 0%, transparent 50%);
+        }
+
+        .slide-placeholder {
+            font-size: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .slide-tip-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .slide-cut-number {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 12px;
+            z-index: 2;
+        }
+
+        /* 팁 슬라이드 - 텍스트 + 이미지 */
+        .slide-tip {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .slide-tip-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .slide-tip-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .slide-tip-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .slide-tip-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-top: 2px;
+            line-height: 1.3;
+        }
+
+        .slide-tip-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            padding: 16px;
+            border-radius: 14px;
+            color: white;
+        }
+
+        .slide-tip-box-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .slide-tip-list {
+            list-style: none;
+        }
+
+        .slide-tip-list li {
+            font-size: 13px;
+            line-height: 1.6;
+            padding: 6px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .slide-tip-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* 팁 슬라이드 내 이미지 영역 (858x572 비율) */
+        .slide-tip-image {
+            width: 100%;
+            aspect-ratio: 858/572;
+            background: linear-gradient(135deg, #FFF5F0 0%, #FFE8DD 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-tip-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,107,53,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,143,102,0.1) 0%, transparent 50%);
+        }
+
+        .slide-tip-image .slide-placeholder {
+            font-size: 48px;
+        }
+
+        /* 잠금 상태 카드 */
+        .tip-card.locked {
+            pointer-events: none;
+            position: relative;
+        }
+
+        .tip-card.locked .tip-card-thumb {
+            filter: grayscale(80%) brightness(0.7);
+        }
+
+        .tip-card.locked .tip-card-content {
+            opacity: 0.5;
+        }
+
+        .tip-card-lock {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            z-index: 5;
+        }
+
+        /* 다른 편 보기 잠금 */
+        .other-tip-item.locked {
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        .other-tip-item.locked .other-tip-thumb {
+            filter: grayscale(80%);
+            position: relative;
+        }
+
+        .other-tip-lock {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+        }
+
+        /* 오버레이 네비게이션 버튼 */
+        .slide-nav-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            pointer-events: none;
+            z-index: 10;
+            padding: 0 8px;
+        }
+
+        .slide-nav-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+            transition: all 0.2s;
+            pointer-events: auto;
+        }
+
+        .slide-nav-btn:hover:not(:disabled) {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .slide-nav-btn:active:not(:disabled) {
+            transform: scale(0.95);
+        }
+
+        .slide-nav-btn:disabled {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* 하단 인디케이터 */
+        .slide-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            gap: 6px;
+        }
+
+        .slide-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--border);
+            transition: all 0.3s;
+        }
+
+        .slide-dot.active {
+            width: 20px;
+            border-radius: 3px;
+            background: var(--primary);
+        }
+
+        /* 다른 편 보기 */
+        .other-tips {
+            padding: 20px 16px 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        .other-tips-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .other-tips-list {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .other-tips-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        .other-tip-item {
+            flex-shrink: 0;
+            width: 80px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .other-tip-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .other-tip-item.current {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .other-tip-thumb {
+            width: 80px;
+            height: 110px;
+            background: linear-gradient(135deg, #FFF5F0 0%, #FFE8DD 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 6px;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .other-tip-item:hover .other-tip-thumb {
+            border-color: var(--primary);
+        }
+
+        .other-tip-item.current .other-tip-thumb {
+            border-color: var(--primary);
+        }
+
+        .other-tip-label {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .other-tip-name {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-dark);
+            line-height: 1.3;
+            margin-top: 2px;
+        }
+
+        /* 애니메이션 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tip-card {
+            animation: fadeInUp 0.5s ease backwards;
+        }
+
+        .tip-card:nth-child(1) { animation-delay: 0.1s; }
+        .tip-card:nth-child(2) { animation-delay: 0.2s; }
+        .tip-card:nth-child(3) { animation-delay: 0.3s; }
+        .tip-card:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- 메인 홈 -->
+    <div class="home-container" id="home">
+        <header class="home-header">
+            <div class="home-logo">
+                <div class="home-logo-icon">☕</div>
+                <span class="home-logo-text">패스오더</span>
+            </div>
+            <h1 class="home-title">
+                <span>시급 2배</span> 챌린지<br>
+                꿀팁 모음
+            </h1>
+            <p class="home-subtitle">
+                정민 매니저가 알려드리는<br>
+                쿠폰 전달 노하우 4편 💡
+            </p>
+        </header>
+
+        <div class="tips-grid">
+            <!-- JavaScript로 동적 렌더링 -->
+        </div>
+    </div>
+
+    <!-- 컷툰 뷰어 -->
+    <div class="viewer-container" id="viewer">
+        <header class="viewer-header">
+            <button class="viewer-back" onclick="closeViewer()">←</button>
+            <div class="viewer-title-area">
+                <div class="viewer-episode" id="viewerEpisode">1편</div>
+                <div class="viewer-title" id="viewerTitle">처음 손님에게 쿠폰 전달하는 법</div>
+            </div>
+        </header>
+
+        <div class="viewer-slider">
+            <div class="slide-container">
+                <div class="slides-wrapper" id="slidesWrapper">
+                    <!-- 슬라이드가 JavaScript로 동적 생성됨 -->
+                </div>
+                
+                <!-- 오버레이 네비게이션 -->
+                <div class="slide-nav-overlay">
+                    <button class="slide-nav-btn" id="prevBtn" onclick="prevSlide()">←</button>
+                    <button class="slide-nav-btn" id="nextBtn" onclick="nextSlide()">→</button>
+                </div>
+            </div>
+
+            <div class="slide-indicator" id="slideIndicator">
+                <!-- 도트가 JavaScript로 동적 생성됨 -->
+            </div>
+        </div>
+
+        <div class="other-tips">
+            <div class="other-tips-title">📚 다른 꿀팁 보기</div>
+            <div class="other-tips-list" id="otherTipsList">
+                <!-- JavaScript로 동적 생성 -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== 설정 =====
+        const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec'; // Apps Script 웹앱 URL로 교체 필요
+        
+        // URL 파라미터 파싱
+        const urlParams = new URLSearchParams(window.location.search);
+        const entryEpisode = parseInt(urlParams.get('ep')) || 4; // 기본값 4 (전체 오픈)
+        const albaId = urlParams.get('alba_id') || 'unknown';
+        
+        // 접근 가능한 에피소드 (ep 파라미터 기준)
+        const maxAccessibleEpisode = entryEpisode;
+
+        // 콘텐츠 데이터
+        const tipsData = {
+            1: {
+                episode: '1편',
+                title: '처음 손님에게 쿠폰 전달하는 가장 쉬운 방법',
+                icon: '🎯',
+                thumbnail: 'images/1-썸네일.png',
+                slides: [
+                    { type: 'thumbnail', image: 'images/1-썸네일.png' },
+                    { type: 'image', image: 'images/1-1컷.png', cutNumber: 1 },
+                    { type: 'image', image: 'images/1-2컷.png', cutNumber: 2 },
+                    { 
+                        type: 'tip',
+                        title: '첫 마디가 어려우시면 이렇게 해보세요!',
+                        tips: [
+                            '컵홀더에 끼워서 자연스럽게 전달',
+                            '여유 있을 때 한마디만!',
+                            '"손님한테만 특별히 드려요" 강조하기'
+                        ],
+                        tipImage: 'images/1-3컷_팁박스.jpg'
+                    },
+                    { type: 'image', image: 'images/1-4컷.png', cutNumber: 4 },
+                    { type: 'image', image: 'images/1-5컷.png', cutNumber: 5 }
+                ]
+            },
+            2: {
+                episode: '2편',
+                title: '사장님 눈치 볼 필요 없는 이유',
+                icon: '🤝',
+                thumbnail: null, // 아직 이미지 없음
+                slides: [
+                    { type: 'image', icon: '🤔', cutNumber: 1 },
+                    { type: 'image', icon: '😔', cutNumber: 2 },
+                    { 
+                        type: 'tip',
+                        title: '이거 하면 모두가 좋아요!',
+                        tips: [
+                            '👤 사장님: 매장 홍보 + 단골 고객 확보',
+                            '👤 알바: 같은 시간 일하고 추가 수익',
+                            '👤 손님: 100원에 커피 마시기'
+                        ],
+                        tipIcon: '🤝'
+                    },
+                    { type: 'image', icon: '🎯', cutNumber: 4 },
+                    { type: 'image', icon: '💪', cutNumber: 5 }
+                ]
+            },
+            3: {
+                episode: '3편',
+                title: '다른 알바들은 어떻게 성과 내고 있을까?',
+                icon: '💡',
+                thumbnail: null,
+                slides: [
+                    { type: 'image', icon: '🤔', cutNumber: 1 },
+                    { type: 'image', icon: '☕', cutNumber: 2 },
+                    { type: 'image', icon: '📱', cutNumber: 3 },
+                    { type: 'image', icon: '🥤', cutNumber: 4 },
+                    { type: 'image', icon: '✨', cutNumber: 5 }
+                ]
+            },
+            4: {
+                episode: '4편',
+                title: '같은 시간 일하고 월 60만원 추가로 버는 알바의 숨겨진 꿀팁',
+                icon: '🏆',
+                thumbnail: null,
+                slides: [
+                    { type: 'image', icon: '😅', cutNumber: 1 },
+                    { type: 'image', icon: '😑', cutNumber: 2 },
+                    { 
+                        type: 'tip',
+                        title: '딱 10초만 도와드리면 2,000원!',
+                        tips: [
+                            '"제가 설치만 같이 도와드릴까요?"',
+                            '많이 나눠줘도 전환 0건이면 0원',
+                            '한 명만 도와드려도 전환되면 2,000원!'
+                        ],
+                        tipIcon: '💰'
+                    },
+                    { type: 'image', icon: '🤳', cutNumber: 4 },
+                    { type: 'image', icon: '🏆', cutNumber: 5 }
+                ]
+            }
+        };
+
+        const otherTipsInfo = [
+            { ep: 1, icon: '🎯', title: '쿠폰 전달법' },
+            { ep: 2, icon: '🤝', title: '눈치 NO' },
+            { ep: 3, icon: '💡', title: '다른 알바들' },
+            { ep: 4, icon: '🏆', title: '월 60만원 꿀팁' }
+        ];
+
+        let currentEpisode = 1;
+        let currentSlide = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        // 에피소드별 최대 도달 슬라이드 기록 (최초 도달 체크용)
+        let maxReachedSlide = {}; 
+
+        // ===== 이벤트 트래킹 =====
+        function getClientTime() {
+            return new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
+        }
+
+        function trackEvent(eventName, eventParams = {}) {
+            const eventData = {
+                server_time: new Date().toISOString(),
+                client_time: getClientTime(),
+                alba_id: albaId,
+                event_name: eventName,
+                event_params: JSON.stringify(eventParams),
+                method: 'GET',
+                page_url: window.location.href,
+                referrer: document.referrer || 'direct',
+                user_agent: navigator.userAgent
+            };
+
+            // GTM dataLayer push
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': eventName,
+                'alba_id': albaId,
+                'entry_episode': entryEpisode,
+                ...eventParams
+            });
+
+            // Google Sheets 로깅
+            sendToSheet(eventData);
+
+            // 콘솔 로그 (디버깅용)
+            console.log('Event tracked:', eventName, eventParams);
+        }
+
+        function sendToSheet(data) {
+            // URL 파라미터로 데이터 전송 (CORS 우회)
+            const params = new URLSearchParams(data).toString();
+            const img = new Image();
+            img.src = `${SHEET_WEBHOOK_URL}?${params}`;
+        }
+
+        // ===== 페이지뷰 이벤트 =====
+        function trackPageView() {
+            trackEvent('page_view', {
+                entry_episode: entryEpisode,
+                max_accessible: maxAccessibleEpisode,
+                view_type: 'home'
+            });
+        }
+
+        // ===== 메인 함수들 =====
+        function isEpisodeLocked(episode) {
+            return episode > maxAccessibleEpisode;
+        }
+
+        function openViewer(episode, fromHome = false) {
+            if (isEpisodeLocked(episode)) {
+                return; // 잠긴 에피소드는 열지 않음
+            }
+
+            // 홈에서 클릭한 경우 home_tip_click 이벤트
+            if (fromHome) {
+                trackEvent('home_tip_click', {
+                    clicked_episode: episode
+                });
+            }
+
+            currentEpisode = episode;
+            currentSlide = 0;
+            
+            // 최대 도달 슬라이드 초기화 (첫 슬라이드부터 시작)
+            if (!maxReachedSlide[episode]) {
+                maxReachedSlide[episode] = 0;
+            }
+            
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('viewer').style.display = 'block';
+            
+            const data = tipsData[episode];
+            document.getElementById('viewerEpisode').textContent = data.episode;
+            document.getElementById('viewerTitle').textContent = data.title;
+            
+            renderSlides(data.slides);
+            renderOtherTips();
+            updateSlidePosition();
+
+            // 에피소드 열기 이벤트
+            trackEvent('episode_open', {
+                episode: episode,
+                episode_title: data.title,
+                total_slides: data.slides.length
+            });
+
+            // 첫 슬라이드 최초 도달 이벤트 (처음 여는 경우만)
+            if (maxReachedSlide[episode] === 0) {
+                trackEvent('slide_reach', {
+                    episode: episode,
+                    reached_slide: 1,
+                    total_slides: data.slides.length,
+                    method: 'open'
+                });
+                maxReachedSlide[episode] = 0; // 인덱스 기준
+            }
+        }
+
+        function closeViewer() {
+            // 뒤로가기 이벤트
+            trackEvent('episode_back', {
+                episode: currentEpisode,
+                max_reached_slide: (maxReachedSlide[currentEpisode] || 0) + 1,
+                total_slides: tipsData[currentEpisode].slides.length
+            });
+
+            document.getElementById('viewer').style.display = 'none';
+            document.getElementById('home').style.display = 'block';
+        }
+
+        function renderHomeCards() {
+            const grid = document.querySelector('.tips-grid');
+            grid.innerHTML = '';
+
+            const titles = {
+                1: '처음 손님에게 쿠폰<br>전달하는 가장 쉬운 방법',
+                2: '사장님 눈치 볼<br>필요 없는 이유',
+                3: '다른 알바들은 어떻게<br>성과 내고 있을까?',
+                4: '같은 시간 일하고 월<br>60만원 추가로 버는 꿀팁'
+            };
+
+            const icons = ['🎯', '🤝', '💡', '🏆'];
+
+            for (let i = 1; i <= 4; i++) {
+                const isLocked = isEpisodeLocked(i);
+                const card = document.createElement('div');
+                card.className = `tip-card ${isLocked ? 'locked' : ''}`;
+                card.onclick = () => openViewer(i, true); // fromHome = true
+                
+                const data = tipsData[i];
+                const hasThumbnail = data.thumbnail;
+                
+                card.innerHTML = `
+                    <div class="tip-card-thumb">
+                        ${hasThumbnail 
+                            ? `<img src="${data.thumbnail}" alt="${i}편 썸네일" class="tip-card-img">` 
+                            : `<span class="tip-card-placeholder">${icons[i-1]}</span>`
+                        }
+                        ${isLocked ? '<div class="tip-card-lock">🔒</div>' : ''}
+                    </div>
+                    <div class="tip-card-content">
+                        <div class="tip-card-episode">${i}편</div>
+                        <div class="tip-card-title">${titles[i]}</div>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            }
+        }
+
+        function renderSlides(slides) {
+            const wrapper = document.getElementById('slidesWrapper');
+            const totalSlides = slides.length;
+            
+            wrapper.innerHTML = slides.map((slide, index) => {
+                if (slide.type === 'thumbnail') {
+                    // 썸네일 슬라이드 (첫 화면)
+                    return `
+                        <div class="slide">
+                            <div class="slide-image-only">
+                                <img src="${slide.image}" alt="썸네일" class="slide-img">
+                            </div>
+                        </div>
+                    `;
+                } else if (slide.type === 'tip') {
+                    // 팁 슬라이드 - 텍스트 + 이미지
+                    const hasImage = slide.tipImage;
+                    return `
+                        <div class="slide">
+                            <div class="slide-tip">
+                                <div class="slide-tip-header">
+                                    <div class="slide-tip-icon">💡</div>
+                                    <div>
+                                        <div class="slide-tip-label">정민 매니저 팁</div>
+                                        <div class="slide-tip-title">${slide.title}</div>
+                                    </div>
+                                </div>
+                                <div class="slide-tip-box">
+                                    <div class="slide-tip-box-title">✅ 이렇게 해보세요!</div>
+                                    <ul class="slide-tip-list">
+                                        ${slide.tips.map(tip => `<li>${tip}</li>`).join('')}
+                                    </ul>
+                                </div>
+                                <div class="slide-tip-image">
+                                    ${hasImage 
+                                        ? `<img src="${slide.tipImage}" alt="팁 이미지" class="slide-tip-img">`
+                                        : `<span class="slide-placeholder">${slide.tipIcon || '💡'}</span>`
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    // 일반 슬라이드 - 이미지
+                    const hasImage = slide.image;
+                    return `
+                        <div class="slide">
+                            <div class="slide-image-only">
+                                ${hasImage 
+                                    ? `<img src="${slide.image}" alt="${slide.cutNumber}컷" class="slide-img">`
+                                    : `<span class="slide-placeholder">${slide.icon}</span>`
+                                }
+                            </div>
+                        </div>
+                    `;
+                }
+            }).join('');
+
+            // 도트 렌더링
+            const indicatorContainer = document.getElementById('slideIndicator');
+            indicatorContainer.innerHTML = slides.map((_, i) => 
+                `<div class="slide-dot ${i === 0 ? 'active' : ''}"></div>`
+            ).join('');
+
+            // 터치 이벤트 추가
+            wrapper.addEventListener('touchstart', handleTouchStart, { passive: true });
+            wrapper.addEventListener('touchend', handleTouchEnd, { passive: true });
+        }
+
+        function renderOtherTips() {
+            const container = document.getElementById('otherTipsList');
+            container.innerHTML = otherTipsInfo.map(tip => {
+                const isLocked = isEpisodeLocked(tip.ep);
+                const isCurrent = tip.ep === currentEpisode;
+                
+                return `
+                    <div class="other-tip-item ${isCurrent ? 'current' : ''} ${isLocked ? 'locked' : ''}" 
+                         onclick="handleOtherTipClick(${tip.ep})">
+                        <div class="other-tip-thumb" style="position: relative;">
+                            ${tip.icon}
+                            ${isLocked ? '<span class="other-tip-lock">🔒</span>' : ''}
+                        </div>
+                        <div class="other-tip-label">${tip.ep}편</div>
+                        <div class="other-tip-name">${tip.title}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function handleOtherTipClick(episode) {
+            if (isEpisodeLocked(episode) || episode === currentEpisode) {
+                return;
+            }
+            
+            // 다른 꿀팁 클릭 이벤트 (뷰어 하단에서)
+            trackEvent('other_tip_click', {
+                from_episode: currentEpisode,
+                to_episode: episode,
+                from_slide: currentSlide + 1
+            });
+
+            openViewer(episode, false); // fromHome = false
+        }
+
+        function updateSlidePosition() {
+            const wrapper = document.getElementById('slidesWrapper');
+            wrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            // 도트 업데이트
+            document.querySelectorAll('.slide-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+
+            // 버튼 상태
+            const slides = tipsData[currentEpisode].slides;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === slides.length - 1;
+        }
+
+        function trackSlideReachIfNew(method) {
+            const slides = tipsData[currentEpisode].slides;
+            
+            // 최초 도달인 경우만 이벤트 발생
+            if (currentSlide > (maxReachedSlide[currentEpisode] || 0)) {
+                maxReachedSlide[currentEpisode] = currentSlide;
+                
+                trackEvent('slide_reach', {
+                    episode: currentEpisode,
+                    reached_slide: currentSlide + 1,
+                    total_slides: slides.length,
+                    method: method
+                });
+
+                // 마지막 슬라이드 도달 시 episode_complete
+                if (currentSlide === slides.length - 1) {
+                    trackEvent('episode_complete', {
+                        episode: currentEpisode,
+                        episode_title: tipsData[currentEpisode].title
+                    });
+                }
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlidePosition();
+                // 뒤로 가는 건 이벤트 기록 안 함
+            }
+        }
+
+        function nextSlide() {
+            const slides = tipsData[currentEpisode].slides;
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                updateSlidePosition();
+                trackSlideReachIfNew('button');
+            }
+        }
+
+        function handleTouchStart(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }
+
+        function handleTouchEnd(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }
+
+        function handleSwipe() {
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                const slides = tipsData[currentEpisode].slides;
+                
+                if (diff > 0 && currentSlide < slides.length - 1) {
+                    // 앞으로 스와이프
+                    currentSlide++;
+                    updateSlidePosition();
+                    trackSlideReachIfNew('swipe');
+                } else if (diff < 0 && currentSlide > 0) {
+                    // 뒤로 스와이프 (이벤트 기록 안 함)
+                    currentSlide--;
+                    updateSlidePosition();
+                }
+            }
+        }
+
+        // ===== 초기화 =====
+        window.onload = function() {
+            // 홈 카드 렌더링 (잠금 상태 반영)
+            renderHomeCards();
+            
+            // 페이지뷰 이벤트
+            trackPageView();
+
+            // ep 파라미터가 있으면 해당 에피소드로 바로 이동
+            const epParam = urlParams.get('ep');
+            if (epParam && tipsData[epParam] && !isEpisodeLocked(parseInt(epParam))) {
+                openViewer(parseInt(epParam), false); // URL 직접 진입은 home_tip_click 아님
+            }
+        };
+    </script>
+</body>
+</html>
