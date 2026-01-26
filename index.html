@@ -769,57 +769,85 @@
                 episode: '2편',
                 title: '사장님 눈치 볼 필요 없는 이유',
                 icon: '🤝',
-                thumbnail: null, // 아직 이미지 없음
+                thumbnail: 'images/2-썸네일.png',
                 slides: [
-                    { type: 'image', icon: '🤔', cutNumber: 1 },
-                    { type: 'image', icon: '😔', cutNumber: 2 },
+                    { type: 'thumbnail', image: 'images/2-썸네일.png' },
+                    { type: 'image', image: 'images/2-1컷.png', cutNumber: 1 },
                     { 
                         type: 'tip',
-                        title: '이거 하면 모두가 좋아요!',
+                        tipType: 'message',
+                        title: '시급 2배 챌린지 참여하면 모두가 좋아요!',
+                        subMessage: '사장님 눈치볼 필요 없어요!',
                         tips: [
                             '👤 사장님: 매장 홍보 + 단골 고객 확보',
                             '👤 알바: 같은 시간 일하고 추가 수익',
                             '👤 손님: 100원에 커피 마시기'
                         ],
-                        tipIcon: '🤝'
+                        tipImage: 'images/2-2컷_팁박스1.jpg'
                     },
-                    { type: 'image', icon: '🎯', cutNumber: 4 },
-                    { type: 'image', icon: '💪', cutNumber: 5 }
+                    { type: 'image', image: 'images/2-3컷.png', cutNumber: 3 },
+                    { 
+                        type: 'tip',
+                        tipType: 'message',
+                        title: '손님이 많아져도 걱정 NO!',
+                        subMessage: '패스오더로 주문하면, 오히려 할 일이 줄어들어요!',
+                        tips: [
+                            '📱 손님: 앱에서 주문·결제·적립 → 줄 안 서고 바로 픽업',
+                            '☕ 알바: 주문·결제·적립 안 하고 음료 제조에만 집중',
+                            '✨ [시급 2배 챌린지] 활동 열심히 할수록 내 일까지 편리하게!'
+                        ],
+                        tipImage: 'images/2-4컷_팁박스2.jpg'
+                    },
+                    { type: 'image', image: 'images/2-5컷.png', cutNumber: 5 }
                 ]
             },
             3: {
                 episode: '3편',
                 title: '다른 알바들은 어떻게 성과 내고 있을까?',
                 icon: '💡',
-                thumbnail: null,
+                thumbnail: 'images/3-썸네일.png',
                 slides: [
-                    { type: 'image', icon: '🤔', cutNumber: 1 },
-                    { type: 'image', icon: '☕', cutNumber: 2 },
-                    { type: 'image', icon: '📱', cutNumber: 3 },
-                    { type: 'image', icon: '🥤', cutNumber: 4 },
-                    { type: 'image', icon: '✨', cutNumber: 5 }
+                    { type: 'thumbnail', image: 'images/3-썸네일.png' },
+                    { type: 'image', image: 'images/3-1컷.png', cutNumber: 1 },
+                    { type: 'image', image: 'images/3-2컷.png', cutNumber: 2 },
+                    { type: 'image', image: 'images/3-3컷.png', cutNumber: 3 },
+                    { type: 'image', image: 'images/3-4컷.png', cutNumber: 4 },
+                    { 
+                        type: 'tip',
+                        tipType: 'message',
+                        title: '성과 내고 있는 알바들의 꿀팁!',
+                        subMessage: '손님 눈에 잘 띄는 곳에 두세요!',
+                        tips: [
+                            '📍 주문받는 POS 옆에',
+                            '📍 주문받는 키오스크 옆에',
+                            '📍 음료 받아가는 픽업대 옆에'
+                        ],
+                        tipImage: 'images/3-5컷_팁박스.jpg'
+                    }
                 ]
             },
             4: {
                 episode: '4편',
-                title: '같은 시간 일하고 월 60만원 추가로 버는 알바의 숨겨진 꿀팁',
+                title: '같은 시간 일하고 월 60만원 추가로 버는 꿀팁',
                 icon: '🏆',
-                thumbnail: null,
+                thumbnail: 'images/4-썸네일.png',
                 slides: [
-                    { type: 'image', icon: '😅', cutNumber: 1 },
-                    { type: 'image', icon: '😑', cutNumber: 2 },
+                    { type: 'thumbnail', image: 'images/4-썸네일.png' },
+                    { type: 'image', image: 'images/4-1컷.png', cutNumber: 1 },
+                    { type: 'image', image: 'images/4-2컷.png', cutNumber: 2 },
                     { 
                         type: 'tip',
-                        title: '딱 10초만 도와드리면 2,000원!',
+                        tipType: 'message',
+                        title: '귀찮아도 10초 도와주고, 확실하게 2,000원 받기',
+                        subMessage: '단순히 나눠주기만 하면 0원, 첫 주문까지 도와드리면 +2,000원!',
                         tips: [
-                            '"제가 설치만 같이 도와드릴까요?"',
-                            '많이 나눠줘도 전환 0건이면 0원',
-                            '한 명만 도와드려도 전환되면 2,000원!'
+                            '📱 그냥 나눠주기보다는, QR 인식 → 회원가입 → 첫 주문까지 도와드려보기',
+                            '💰 100장 나눠줘도 첫주문 0건이면, 0원',
+                            '✨ 1명만 도와드려도 바로 첫주문하면, 2,000원'
                         ],
-                        tipIcon: '💰'
+                        tipImage: 'images/4-3컷_팁박스.jpg'
                     },
-                    { type: 'image', icon: '🤳', cutNumber: 4 },
-                    { type: 'image', icon: '🏆', cutNumber: 5 }
+                    { type: 'image', image: 'images/4-4컷.png', cutNumber: 4 }
                 ]
             }
         };
@@ -1015,33 +1043,67 @@
                 } else if (slide.type === 'tip') {
                     // 팁 슬라이드 - 텍스트 + 이미지
                     const hasImage = slide.tipImage;
-                    return `
-                        <div class="slide">
-                            <div class="slide-tip">
-                                <div class="slide-tip-header">
-                                    <div class="slide-tip-icon">💡</div>
-                                    <div>
-                                        <div class="slide-tip-label">정민 매니저 팁</div>
-                                        <div class="slide-tip-title">${slide.title}</div>
+                    const isMessageType = slide.tipType === 'message';
+                    
+                    if (isMessageType) {
+                        // 메시지 타입 (2편 등)
+                        return `
+                            <div class="slide">
+                                <div class="slide-tip">
+                                    <div class="slide-tip-header">
+                                        <div class="slide-tip-icon">💡</div>
+                                        <div>
+                                            <div class="slide-tip-label">정민 매니저 팁</div>
+                                            <div class="slide-tip-title">${slide.title}</div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="slide-tip-body">
-                                    <div class="slide-tip-box">
-                                        <div class="slide-tip-box-title">✅ 이렇게 해보세요!</div>
-                                        <ul class="slide-tip-list">
-                                            ${slide.tips.map(tip => `<li>${tip}</li>`).join('')}
-                                        </ul>
-                                    </div>
-                                    <div class="slide-tip-image">
-                                        ${hasImage 
-                                            ? `<img src="${slide.tipImage}" alt="팁 이미지" class="slide-tip-img">`
-                                            : `<span class="slide-placeholder">${slide.tipIcon || '💡'}</span>`
-                                        }
+                                    <div class="slide-tip-body">
+                                        <div class="slide-tip-box">
+                                            <div class="slide-tip-box-title">${slide.subMessage}</div>
+                                            <ul class="slide-tip-list">
+                                                ${slide.tips.map(tip => `<li>${tip}</li>`).join('')}
+                                            </ul>
+                                        </div>
+                                        <div class="slide-tip-image">
+                                            ${hasImage 
+                                                ? `<img src="${slide.tipImage}" alt="팁 이미지" class="slide-tip-img">`
+                                                : `<span class="slide-placeholder">${slide.tipIcon || '💡'}</span>`
+                                            }
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    `;
+                        `;
+                    } else {
+                        // 기본 타입 (1편 등)
+                        return `
+                            <div class="slide">
+                                <div class="slide-tip">
+                                    <div class="slide-tip-header">
+                                        <div class="slide-tip-icon">💡</div>
+                                        <div>
+                                            <div class="slide-tip-label">정민 매니저 팁</div>
+                                            <div class="slide-tip-title">${slide.title}</div>
+                                        </div>
+                                    </div>
+                                    <div class="slide-tip-body">
+                                        <div class="slide-tip-box">
+                                            <div class="slide-tip-box-title">✅ 이렇게 해보세요!</div>
+                                            <ul class="slide-tip-list">
+                                                ${slide.tips.map(tip => `<li>${tip}</li>`).join('')}
+                                            </ul>
+                                        </div>
+                                        <div class="slide-tip-image">
+                                            ${hasImage 
+                                                ? `<img src="${slide.tipImage}" alt="팁 이미지" class="slide-tip-img">`
+                                                : `<span class="slide-placeholder">${slide.tipIcon || '💡'}</span>`
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
                 } else {
                     // 일반 슬라이드 - 이미지
                     const hasImage = slide.image;
