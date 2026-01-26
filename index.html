@@ -250,12 +250,14 @@
         .slide {
             min-width: 100%;
             position: relative;
+            aspect-ratio: 858/1189;
+            overflow: hidden;
         }
 
         /* 일반 슬라이드 - 이미지만 꽉 차게 */
         .slide-image-only {
             width: 100%;
-            aspect-ratio: 858/1189;
+            height: 100%;
             background: var(--primary-light);
             display: flex;
             align-items: center;
@@ -305,6 +307,7 @@
             display: flex;
             flex-direction: column;
             height: 100%;
+            overflow: hidden;
         }
 
         .slide-tip-header {
@@ -349,6 +352,7 @@
             display: flex;
             flex-direction: column;
             gap: 16px;
+            overflow: hidden;
         }
 
         .slide-tip-box {
