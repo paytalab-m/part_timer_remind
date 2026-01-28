@@ -891,10 +891,10 @@
                     { 
                         type: 'tip',
                         tipType: 'message',
-                        title: '단순히 쿠폰 나눠주기만 하면 0원,<br>첫 주문까지 도와드리면 +2,000원!',
+                        title: '단순히 쿠폰 나눠주기만 하면 0원,<br><span class="notice-highlight">첫 주문까지</span> 도와드리면 +2,000원!',
                         subMessage: '',
                         tips: [
-                            '쿠폰을 단순히 손님에게 나눠주기 보다는,<br>그 자리에서 쿠폰의 QR 인식 → 회원가입 → 첫 주문까지 도와드려보기 📱',
+                            '쿠폰을 단순히 손님에게 나눠주기 보다는,<br>그 자리에서 쿠폰의 QR 인식 → 회원가입 → <span class="notice-highlight">첫 주문까지</span> 도와드려보기 📱',
                             '100장 나눠줘도 손님의 첫 주문이 없으면, 0원 💰',
                             '1명만 도와드려도 바로 첫 주문하면, +2,000원 ✨'
                         ],
@@ -1005,7 +1005,16 @@
             
             renderSlides(data.slides);
             renderOtherTips();
+            
+            // 애니메이션 없이 즉시 첫 슬라이드로 이동
+            const wrapper = document.getElementById('slidesWrapper');
+            wrapper.style.transition = 'none';
             updateSlidePosition();
+            
+            // 다음 프레임에서 transition 복원
+            requestAnimationFrame(() => {
+                wrapper.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
 
             // 에피소드 열기 이벤트
             trackEvent('episode_open', {
