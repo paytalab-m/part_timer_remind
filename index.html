@@ -95,6 +95,35 @@
             line-height: 1.5;
         }
 
+        /* 공지사항 박스 */
+        .notice-box {
+            background: #FFF0F0;
+            border: 2px solid #FFCDD2;
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .notice-highlight {
+            background: linear-gradient(transparent 50%, #FFF59D 50%);
+            padding: 0 2px;
+        }
+
+        .notice-icon {
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .notice-text {
+            font-size: 13px;
+            font-weight: 600;
+            color: #C62828;
+            line-height: 1.4;
+        }
+
         /* 카드 그리드 */
         .tips-grid {
             display: grid;
@@ -526,7 +555,7 @@
             height: 44px;
             border-radius: 50%;
             border: none;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.15);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -538,7 +567,7 @@
         }
 
         .slide-nav-btn:hover:not(:disabled) {
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.3);
         }
 
         .slide-nav-btn:active:not(:disabled) {
@@ -631,12 +660,21 @@
             overflow: hidden;
         }
 
-        .other-tip-item:hover .other-tip-thumb {
+        .other-tip-item:hover:not(.current) .other-tip-thumb {
             border-color: var(--primary);
         }
 
         .other-tip-item.current .other-tip-thumb {
             border-color: var(--primary);
+        }
+
+        /* 현재 안 보고 있는 편 - 투명도 적용 */
+        .other-tip-item:not(.current):not(.locked) .other-tip-thumb {
+            opacity: 0.8;
+        }
+
+        .other-tip-item:not(.current):not(.locked):hover .other-tip-thumb {
+            opacity: 1;
         }
 
         .other-tip-label {
@@ -691,6 +729,10 @@
                 정민 매니저가 알려드리는<br>
                 쿠폰 전달 노하우 4편 💡
             </p>
+            <div class="notice-box">
+                <span class="notice-icon">📢</span>
+                <span class="notice-text">1월 챌린지 기간 연장! <span class="notice-highlight">2/12(목)</span>까지 활동 가능</span>
+            </div>
         </header>
 
         <div class="tips-grid">
@@ -724,6 +766,11 @@
             <div class="slide-indicator" id="slideIndicator">
                 <!-- 도트가 JavaScript로 동적 생성됨 -->
             </div>
+        </div>
+
+        <div class="notice-box" style="margin: 0 16px 16px;">
+            <span class="notice-icon">📢</span>
+            <span class="notice-text">1월 챌린지 기간 연장! <span class="notice-highlight">2/12(목)</span>까지 활동 가능</span>
         </div>
 
         <div class="other-tips">
@@ -844,12 +891,12 @@
                     { 
                         type: 'tip',
                         tipType: 'message',
-                        title: '귀찮아도 10초 도와드리고,<br>확실하게 2,000원 받기',
-                        subMessage: '단순히 쿠폰 나눠주기만 하면 0원,<br>그 자리에서 첫 주문까지 도와드리면 +2,000원!',
+                        title: '단순히 쿠폰 나눠주기만 하면 0원,<br>그 자리에서 첫 주문까지 도와드리면 +2,000원!',
+                        subMessage: '',
                         tips: [
-                            '📱 쿠폰을 단순히 손님에게 나눠주기 보다는, 그 자리에서<br>쿠폰의 QR 인식 → 회원가입 → 첫 주문까지 도와드려보기',
-                            '💰 100장 나눠줘도 손님의 첫 주문이 없으면, 0원',
-                            '✨ 1명만 도와드려도 손님이 바로 첫 주문하면, +2,000원'
+                            '쿠폰을 단순히 손님에게 나눠주기 보다는,<br>그 자리에서 쿠폰의 QR 인식 → 회원가입 → 첫 주문까지 도와드려보기 📱',
+                            '100장 나눠줘도 손님의 첫 주문이 없으면, 0원 💰',
+                            '1명만 도와드려도 손님이 바로 첫 주문하면, +2,000원 ✨'
                         ],
                         tipImage: 'images/4-3컷_팁박스.jpg'
                     },
@@ -948,6 +995,9 @@
             
             document.getElementById('home').style.display = 'none';
             document.getElementById('viewer').style.display = 'block';
+            
+            // 스크롤 맨 위로 이동
+            window.scrollTo(0, 0);
             
             const data = tipsData[episode];
             document.getElementById('viewerEpisode').textContent = data.episode;
@@ -1065,7 +1115,7 @@
                                     </div>
                                     <div class="slide-tip-body">
                                         <div class="slide-tip-box">
-                                            <div class="slide-tip-box-title">${slide.subMessage}</div>
+                                            ${slide.subMessage ? `<div class="slide-tip-box-title">${slide.subMessage}</div>` : ''}
                                             <ul class="slide-tip-list">
                                                 ${slide.tips.map(tip => `<li>${tip}</li>`).join('')}
                                             </ul>
