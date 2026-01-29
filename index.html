@@ -891,12 +891,12 @@
                     { 
                         type: 'tip',
                         tipType: 'message',
-                        title: '손님에게 쿠폰을 통해 바로 첫 주문하도록 도와드리면,<br>확실하게 +2,000원!',
+                        title: '손님에게 쿠폰을 통해 바로 첫 주문하도록<br>도와드리면, 확실하게 2,000원씩 추가 수익!',
                         subMessage: '',
                         tips: [
-                            '그 자리에서 손님에게 쿠폰을 통해 바로 첫 주문하도록 도와드리기',
-                            '도와드린 만큼 확실하게 +2,000원씩 적립',
-                            '1분이면 끝! 생각보다 쉽게 2,000원 벌 수 있어요 💰'
+                            '☕ 매장에서 주문하는 손님에게 바로 쿠폰을 통해 첫 주문하도록 도와드려보세요!',
+                            '💬 쿠폰 건네면서 "바로 사용해보실래요?" 한마디로 시작!',
+                            '💰 <span class="notice-highlight">1분 안에, 확실하게 +2,000원을 벌 수 있어요</span>'
                         ],
                         tipImage: 'images/4-3컷_팁박스.jpg'
                     },
@@ -1191,9 +1191,12 @@
                 `<div class="slide-dot ${i === 0 ? 'active' : ''}"></div>`
             ).join('');
 
-            // 터치 이벤트 추가
-            wrapper.addEventListener('touchstart', handleTouchStart, { passive: true });
-            wrapper.addEventListener('touchend', handleTouchEnd, { passive: true });
+            // 터치 이벤트를 slide-container에 추가 (팁 슬라이드에서도 동작하도록)
+            const slideContainer = wrapper.parentElement;
+            slideContainer.removeEventListener('touchstart', handleTouchStart);
+            slideContainer.removeEventListener('touchend', handleTouchEnd);
+            slideContainer.addEventListener('touchstart', handleTouchStart, { passive: true });
+            slideContainer.addEventListener('touchend', handleTouchEnd, { passive: true });
         }
 
         function renderOtherTips() {
